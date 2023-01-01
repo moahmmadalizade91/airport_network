@@ -45,9 +45,10 @@ def create_airport(file_name):
                 i += 1
             if not np.isnan(data_dict['AircraftNumber'][index]):
                 for n in range(data_dict['AircraftNumber'][index]):
-                    aircrafts.append(Aircraft(i, data_dict['AircraftID'][index], None, 'ready', [], runway_obj.position))
+                    aircrafts.append(Aircraft(i, int(data_dict['AircraftID'][index]), None, 'ready', [], runway_obj.position))
                     i += 1
     airport_obj.runways = runways
+    airport_obj.aircrafts = aircrafts
     airport_objects.append(deepcopy(airport_obj))
     last_id = i
     return airport_objects, last_id

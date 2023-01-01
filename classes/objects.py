@@ -14,8 +14,8 @@ class Runway:
         self.length = length #ft
         self.width = width #ft
         self.name = name
-        self.status = 'ready'
-        self.status_period_epochs = []
+        # self.status = 'ready'
+        self.schedule_list = []
         self.occupied_aircraft = None
         self.position_start = position_start
         self.position_end =[]
@@ -35,8 +35,12 @@ class Flight:
     def __init__(self, id_, origin_id, destiation_id, start_time, carrier_kind, carrier_id):
         self.id_ = id_
         self.origin_id = origin_id
-        self.destiation_id = destiation_id
+        self.destination_id = destiation_id
         self.start_time = start_time
         self.carrier_kind = carrier_kind
         self.carrier_id = carrier_id
         self.status = 'scheduled'
+        self.delayed_at = {'before_takeoff':0, 'before_turnaround':0, 'before_landing':0}
+        self.takeoff_runway = None
+        self.landing_runway = None
+        self.total_distance = None

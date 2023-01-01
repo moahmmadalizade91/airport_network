@@ -9,24 +9,12 @@ def create_schedule(airports, number_of_trips, start_time, end_time, output_file
     destination_id_list = []
     origin_id_list = []
     # aircraft_id_list = []
-    origin_index_main = 0
-    destination_index_main = 1
     for trip in range(number_of_trips):
-        if trip%2 == 0:
-            # print('hi')
-            origin_index = origin_index_main
-            destination_index = destination_index_main
-        else:
-            # print('hello')
-            origin_index = destination_index_main
-            destination_index = origin_index_main
         trip_start_time = int(np.random.rand() * duration + start_time)
-        # print(origin_index, destination_index)
         # arrival_time_list.append(arrivial_time)
-        # origin_index = int(np.random.rand()*len(airports))
-        # destination_index = int(np.random.rand()*len(airports))
+        origin_index = int(np.random.rand()*len(airports))
+        destination_index = int(np.random.rand()*len(airports))
         while destination_index == origin_index:
-            print('hi')
             destination_index = int(np.random.rand()*len(airports))
         origin_id = airports[origin_index].id_
         destination_id = airports[destination_index].id_
